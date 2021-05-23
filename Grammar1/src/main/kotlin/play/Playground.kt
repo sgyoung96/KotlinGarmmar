@@ -1,4 +1,5 @@
 package play
+// command + option + R 하면 main() 함수를 실행할 파일을 선택할 수 있음!
 
 //class Playground {
 //    fun main() = println("Hello!!!!")
@@ -71,8 +72,16 @@ fun main() {
 
 //    var inferedNonNull = inferredNonNull = null // -> 에러 : 타입이 정확히 지정되지 않은 것. 추론 타입 변수는 null 할당 불가다.
 
-}
+    // class 실습
+    val customer = Customer()
+    val contact = Contact(1, "asdf@naver.com")
+    println(contact.id)
+    println(contact.email)
+//    contact.id = 2 // 에러, 매개변수 선언해줄 때 val 이라고 했었음
+    contact.email = "12345@naver.com"
+    println(contact.email)
 
+}
 class Person(val name: String) {
     val likedPeople = mutableListOf<Person>()
     infix fun likes(other: Person) {
@@ -82,3 +91,6 @@ class Person(val name: String) {
     }
     //println() -----------> error!
 }
+
+class Customer // {} 내용이 없으면 생략 가능
+class Contact (val id: Int, var email: String)
